@@ -12,3 +12,4 @@
 11. apt install apache2
 12. ufw allow "Apache Full"
 13. vim /var/www/html/index.html
+14. https://www.jumpthegreatfirewall.com/
