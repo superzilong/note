@@ -17,7 +17,7 @@ selector {
 ```
 
 ### CSS选择器
-* ####contextual selector
+* #### contextual selector
 ```
 li strong {
     font-style: italic;
@@ -26,7 +26,7 @@ li strong {
 ```
 表示`li`元素下的`strong`元素的样式
 
-* ####id selector
+* #### id selector
 ```
 #red {color:red;}
 #green {color:green;}
@@ -48,7 +48,7 @@ div#sidebar {
 ```
 表示`id`为sidebar的`div`元素, 但是貌似这个div很多余啊, 毕竟id在一个页面中就只能用一次
 
-* ####class selector
+* #### class selector
 ```
 .center {text-align: center}
 ```
@@ -68,7 +68,7 @@ td.fancy {
 ```
 表示`class`为fancy的'td'元素
 
-* ####property selector
+* #### property selector
 ```
 [title]
 {
@@ -77,7 +77,7 @@ color:red;
 ```
 选择的目标是:包含title属性的所有元素
 
-* ####value selector
+* #### value selector
 ```
 input[type="text"]
 {
@@ -96,3 +96,16 @@ input[type="text"]
 3. 背景边框: background, border (架柱子, 上砖, 批灰)
 4. 文字内容: font, line-height, letter-spacing, color-text-align (房子的内饰, 摆个画, 放个沙发之类)
 5. 其他: animation, transition (后期配套, 如超市, 银行, 医院)
+
+### margin, border, padding, content, width, height, background
+1. HTML中的元素可以看成是一个个的盒子, width和height是指content内容的宽度和高度
+2. background是指整个padding和content区域的背景图
+![BoxModel](css01-boxmodel.png)
+
+### display和position属性
+position属性包括static, fixed, sticky, relative和absolute五个值.
+position中的relative和absolute的比较:
+1. relative是针对于该元素在文档流中的正常位置进行定位,
+2. absolute是根据祖先类中的position非static元素进行定位的,如果没有非static定位的元素,absolute将相对于html元素定位.
+
+### 伪类???
