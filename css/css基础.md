@@ -2,9 +2,9 @@
 # CSS基础
 
 ### CSS样式加载优先级
-1. 内联样式（在 HTML 元素内部)
-2. 内部样式表（位于 <head> 标签内部)
-3. 外部样式表
+1. 内联样式   Inline CSS  （在 HTML元素styles属性内定义)
+2. 内部样式表 Internal CSS（位于<head>中的<style>标签内部定义)
+3. 外部样式表 External CSS (位于单独的css文件内,并在<head>中的<link>中引用)
 4. 浏览器缺省设置
 
 ### CSS语法
@@ -16,7 +16,7 @@ selector {
 }
 ```
 
-### CSS选择器
+### CSS选择器gg
 * #### contextual selector
 ```
 li strong {
