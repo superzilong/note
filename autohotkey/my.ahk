@@ -108,7 +108,7 @@ Explorer_Get(hwnd="",selection=false)
 CapsLock & s::
 WinGet, process, processName, % "ahk_id" WinExist("A")
 StringLower, outStr, process
-;MsgBox, outStr
+; MsgBox, %outStr%
 if (outStr=="explorer.exe"){
   path := Explorer_GetSelected()
 }
@@ -187,55 +187,88 @@ OpenOrShowAppBasedOnExeName(AppAddress)
 }
 
 CapsLock & a::
-    AppExeName := "MSC_APEX.exe"
-	IfWinExist ahk_exe %AppExeName%
+AppExeName := "MSC_APEX.exe"
+IfWinExist ahk_exe %AppExeName%
+{
+
+	IfWinActive
 	{
-	
-		IfWinActive
-		{
-			WinMinimize, A
-			Return
-		}
-		else
-		{
-			WinActivate
-			Return
-		}
-				
+		WinMinimize, A
+		Return
 	}
 	else
-	{	
-		Run, "D:\Perforce\zhu_PRC-WH171006_D2_output\scons\debug\mod\runMSC_GenDes.bat", "-console", UseErrorLevel
-        If ErrorLevel
-        {
-            Msgbox, File %AppAddress% Not Found
-            Return
-        }
-		else
-		{
-			WinWait, ahk_exe %AppExeName%
-			WinActivate ahk_exe %AppExeName%			
-			Return
-		}			
-		
+	{
+		WinActivate
+		Return
 	}
+			
+}
+else
+{	
+	Run, "D:\Perforce\D1_output\scons\debug\mod\runMSC_ApexTest.bat", "-console", UseErrorLevel
+    If ErrorLevel
+    {
+        Msgbox, File %AppAddress% Not Found
+        Return
+    }
+	else
+	{
+		WinWait, ahk_exe %AppExeName%
+		WinActivate ahk_exe %AppExeName%			
+		Return
+	}			
+	
+}
+
+CapsLock & g::
+AppExeName := "MSC_APEX.exe"
+IfWinExist ahk_exe %AppExeName%
+{
+
+    IfWinActive
+    {
+        WinMinimize, A
+        Return
+    }
+    else
+    {
+        WinActivate
+        Return
+    }
+            
+}
+else
+{   
+    Run, "D:\Perforce\D3_output\scons\debug\mod\runMSC_GenDesTest.bat", "-console", UseErrorLevel
+    If ErrorLevel
+    {
+        Msgbox, File %AppAddress% Not Found
+        Return
+    }
+    else
+    {
+        WinWait, ahk_exe %AppExeName%
+        WinActivate ahk_exe %AppExeName%            
+        Return
+    }           
+    
+}
 
 CapsLock & k::
-Run, cmd.exe /c taskkill /IM MSC_APEX.exe /F,,hide
+RunWait, taskkill /im MSC_APEX.exe /f
+RunWait, taskkill /im RKServer.exe /f
+return
 
 CapsLock & z::7zip()
+return
 
 7zip() {
-    blockinput on
-    send {LButton}{RButton}7eee{enter}
-    blockinput Off
-    return
     temp = %clipboard%
-    KeyWait, LButton, D+++
     send {LButton}
     sleep,100
     Send, {Ctrl Down}c{Ctrl Up}
     file = %clipboard% ;get file address
+    msgbox, 7zip will extract "%file%".
     clipboard = %temp% ;restore clipboard
     outdir := getdir(file)
     if (A_Is64bitOS = 1) {
@@ -288,7 +321,36 @@ return
 
 CapsLock & d::
 run, "https://devdocs.io"
+return
 
-CapsLock & l::
-run, "D:\Perforce\zhu_PRC-WH171006_D1_output\scons\debug\mod\leaf\Services\EOM\WIN8664\bin\lsconfig.bat"
+CapsLock & t::run taskmgr.exe
+return
+
+CapsLock & q::
+ClipSaved := ClipboardAll
+Send ^c
+ClipWait
+path = %clipboard%
+Clipboard := ClipSaved
+msgbox, %path%
+; commands=
+; (join&
+;  python3 "D:\ApexDoc\script\UniqueFailures.py" "-i" %path%"`n
+; )
+; Run, cmd /c %commands%  
+run cmd.exe
+    WinWait, ahk_exe cmd.exe ; Wait for CMD to start
+    send cd /d C:\Users\zhu\Desktop{enter}
+    Send python3 D:\ApexDoc\script\UniqueFailures.py -i %path%{enter}
+return
+
+CapsLock & c::
+Clipboard := Explorer_GetSelected()
+
+CapsLock & e::
+Click,,Right
+Send wt
+Return
+
+
 

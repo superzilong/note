@@ -19,7 +19,7 @@ c(); // expect: Object global, strict mode is undefined
 a.b.call(undefined); // expect: Object global, strict mode is undefined
 ```
 
-在此例中, 可以把a.b()看做a.b.call(a)的简写, this就是调用的对象a.call函数的第一个参数用来绑定函数中的this. 
+在此例中, 可以把a.b()看做a.b.call(a)的简写, this就是调用的对象a.call函数的第一个参数用来绑定函数中的this.
 
 在运行c()时, 由于没有对象在调用, 非严格模式下this就是window或者global. 严格模式下就是undefined.
 
