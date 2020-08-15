@@ -1,12 +1,12 @@
-| 版本 | 描述 | 时间           |
-|      |      |                |
-| v1   | 创建 | 2019年10月31日 |
+---
+date: 2019年10月31日
+---
 
+# Javascript学习笔记
 
-[TOC]
-#Javascript学习笔记
 ![logo](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTDGdDnSI__JR_jzxRm6qUztp60yvPaBcNc3K9Bu8NTqZDd02JS)
-##1 简介
+
+## 1 简介
 Introduce from wiki:
 >JavaScript (/ˈdʒɑːvəˌskrɪpt/), often abbreviated as JS, is a high-level, interpreted scripting language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
 
@@ -19,12 +19,18 @@ Introduce from wiki:
 总的来说就是JavaScript是一个解释型的脚本语言，它包含动态类型，基于原型，面向对象，函数优先的特性。
 Javascript起初主要应用于浏览器端，作用于网页交互。现今已经发展到服务端的应用，移动端的应用和桌面应用等领域。
 
-##2 数据类型
-###2.1 Bool
+## 2 数据类型
+
+### 2.1 Bool
+
 true和false
-###2.2 数值
+
+### 2.2 数值
+
 javscript的内部，所有数字都是以64位浮点数存储，特殊数字包括NAN和Infinity
-###2.3 字符串
+
+### 2.3 字符串
+
 字符串就是零个或多个排在一起的字符，放在单引号或者或双引号之中。
 注意:
 
@@ -48,30 +54,49 @@ s // "hello"
 ```
 * 由于 HTML 语言的属性值使用双引号，所以很多项目约定 JavaScript 语言的字符串只使单引号。
 * 我们还需要知道，每个字符在 JavaScript 内部都是以16位（即2个字节）的 UTF-16 格式储存。也就是说，JavaScript 的单位字符长度固定为16位长度，即2个字节。JavaScript 对 UTF-16 的支持是不完整的，由于历史原因，只支持两字节的字符，不支持四字节的字符。
-###2.4 对象
-###2.5 函数
-###2.6 数组
-###2.7 null和undefined
+
+### 2.4 对象
+
+### 2.5 函数
+
+### 2.6 数组
+
+### 2.7 null和undefined
+
 ```javascript
 undefined == null
 // true undefined与null都被转换为false
 Number(null) // 0
 Number(undefined) // NaN
 ```
-###2.8 数据类型转换
-强制转换和自动转换
-##3. 运算符
-##4. 语法专题
-###4.1 if while
 
-###4.2 异常处理
+### 2.8 数据类型转换
+
+强制转换和自动转换
+
+## 3. 运算符
+
+## 4. 语法专题
+
+### 4.1 if while
+
+### 4.2 异常处理
+
 Javascript语言原生提供**Error**构造函数来跑出异常。try{...}catch{...}finally{...}
-##5 面向对象
-##6 常用操作
-###6.1 console
-###6.2 正则表达式
-###6.3 异步操作
-###6.4 DOM操作
-##7 编程风格
+
+## 5 面向对象
+
+## 6 常用操作
+
+### 6.1 console
+
+### 6.2 正则表达式
+
+### 6.3 异步操作
+
+### 6.4 DOM操作
+
+## 7 编程风格
+
 * 大括号的起首跟在关键字之后
 * 函数的声明和调用的地方，函数名和小括号之间没有空格
