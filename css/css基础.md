@@ -1,6 +1,6 @@
 # CSS基础
 
-## CSS样式加载
+## 一. CSS样式加载
 
 **加载种类**
 * 内联样式(Inline CSS): 在HTML元素styles属性内定义
@@ -11,7 +11,7 @@
 **优先级**
 使用就近原则，最后加载的样式优先级更高
 
-## CSS语法
+## 二. CSS语法
 
 ```css
 selector1 {
@@ -24,11 +24,11 @@ selector2 {
 }
 ```
 
-## CSS选择器
+## 三. CSS选择器
 
-### 一. 基本选择器
+### 1. 基本选择器
 
-#### 1. 元素选择器(element selector)
+#### 1.1 元素选择器(element selector)
 
 ```css
 p {
@@ -36,7 +36,7 @@ p {
 }
 ```
 
-#### 2. ID selector
+#### 1.2 ID选择器(ID selector)
 
 ```css
 \* id为red和green选择器 *\
@@ -57,7 +57,7 @@ div#sidebar {
     }
 ```
 
-#### 3. Class selector
+#### 1.3 类选择器Class selector
 
 ```css
 /* 表示`class`为center的选择器*/
@@ -75,9 +75,9 @@ td.fancy {
     background: #666;
     }
 ```
-### 二. 结合选择器(Combinator selector)
+### 2. 结合选择器(Combinator selector)
 
-#### 1. 后代选择器(descendant selector)
+#### 2.1 后代选择器(descendant selector)
 
 使用空格表示:
 ```css
@@ -88,7 +88,7 @@ li strong {
     }
 ```
 
-#### 2. 子选择器(Child selector)
+#### 2.2 子选择器(Child selector)
 
 使用 > 表示:
 ```css
@@ -98,7 +98,7 @@ body>p {
 }
 ```
 
-#### 3. 相邻弟选择器(Adjacent sibling combinator)
+#### 2.3 相邻弟选择器(Adjacent sibling combinator)
 
 使用+表示(记忆方式 a+b中b相对a的关系):
 ```css
@@ -109,7 +109,7 @@ body>p {
 }
 ```
 
-#### 4. 通用相邻选择器(General sibling combinator)
+#### 2.4 通用相邻选择器(General sibling combinator)
 
 使用~表示:
 ```css
@@ -119,19 +119,19 @@ body>p {
 }
 ```
 
-### 三. 伪类选择器(Pseudo class selector)
+### 3. 伪类选择器(Pseudo class selector)
 
 使用冒号来表示
 
- ![伪类](css基础.assets/伪类.png)
+ ![伪类](css基础/伪类.png)
 
-### 四. 伪元素选择器 (Pseudo element selector)
+### 4. 伪元素选择器 (Pseudo element selector)
 
 使用双冒号来表示
 
- ![伪元素](css基础.assets/伪元素.png)
+ ![伪元素](css基础/伪元素.png)
 
-### 五. 属性选择器(Attribute selectors)
+### 5. 属性选择器(Attribute selectors)
 
 * CSS [attribute] Selector: 选择所有包含属性的元素
 
@@ -191,7 +191,7 @@ a[target="_blank"]{
 /* 选中包含title属性, 并且class属性以genes结尾的<a>元素 */
 a[title][class$="genes"]
 ```
-## CSS书写顺序(以盖楼房举例说明)
+## 四. CSS书写顺序(以盖楼房举例说明)
 
 1. 位置属性: position, top, right, z-index, display, float (找个位置盖楼)
 2. 尺寸大小: width, height, padding, margin (规定每栋楼的大小)
@@ -199,17 +199,43 @@ a[title][class$="genes"]
 4. 文字内容: font, line-height, letter-spacing, color-text-align (房子的内饰, 摆个画, 放个沙发之类)
 5. 其他: animation, transition (后期配套, 如超市, 银行, 医院)
 
-## margin, border, padding, content, width, height, background
+## 五. CSS Layout
 
-1. HTML中的元素可以看成是一个个的盒子, width和height是指content内容的宽度和高度
-2. background是指整个padding和content区域的背景图
-![BoxModel](./css基础.assets/css01-boxmodel.png)
+### 1. display属性
 
-## display和position属性
+display属性包括:block, inline-block, inline, flex, grid
 
-position属性包括static, fixed, sticky, relative和absolute五个值.
-position中的relative和absolute的比较:
-1. relative是针对于该元素在文档流中的正常位置进行定位,
-2. absolute是根据祖先类中的position非static元素进行定位的,如果没有非static定位的元素,absolute将相对于html元素定位.
+### 2. position属性
 
-## 伪类
+position属性包括static, relative, absolute, fixed, sticky,五个值.
+
+1. static就是默认的流式布局(flow)
+
+2. relative是针对于该元素在文档流中的正常位置进行定位,
+
+3. absolute是根据祖先类中的position非static元素进行定位的,如果没有非static定位的元素,absolute将相对于html元素定位.
+
+4. fixed是针对的viewport的相对定位
+
+5. sticky是当top, left, right, bottom满足设定的要求时, 由static状态转变为fixed状态
+
+### 3. float属性
+
+## 六. 盒子模型
+
+使用到和属性有box-sizing, margin, border, padding, content, width, height, background
+
+当box-sizing为content-box时:
+
+* HTML中的元素可以看成是一个个的盒子, width和height是指content内容的宽度和高度
+
+* background是指整个padding和content区域的背景图
+  ![BoxModel](./css基础/css01-boxmodel.png)
+
+当box-sizing为border-box时:
+
+* width就是border的宽度加上padding的宽度再加上content的宽度
+
+* 同理, height就是border的高度加上padding的高度加上content的高度
+
+* background就是padding和content区域的背景
